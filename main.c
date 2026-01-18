@@ -1,48 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void signe(float a, float b) {
-    if ((a > 0 && b > 0) || (a < 0 && b < 0))
-        printf("Les deux variables sont de meme signe. \n");
-    else
-        printf("Les deux variables ne sont pas de meme signe. \n");
-}
-
-float minimum(float a, float b){
-    float min;
-    if (a>b){
-        min = b;
-    } else {
-        min = a;
-}
-    return min;
-}
-float maximum(float a, float b){
-    float max;
-    if (a<b){
-        max = b;
-    } else {
-        max = a;
-    }
-    return max;
-}
-
 int main()
 {
-    float A,B,min,max;
+    int n;
+    int A[64];
+    int i,j = 0;
 
+    printf("Entrer le nombre en decimale: ");
+    scanf("%d", &n);
 
-    printf("Veullier entrer la valeur de A:\n");
-    scanf("%f", &A);
-    printf("Veullier entrer la valeur de B:\n");
-    scanf("%f", &B);
+    while(n > 0) {
+        A[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
 
-    signe(A,B);
-    min = minimum(A,B);
-    max = maximum(A,B);
+    for(j = 0; j < i; j++) {
+        printf("A[%d]: %d \n", j, A[j]);
+    }
 
-    printf("Le minimum est: %.2f \n", min);
-    printf("Le maximum est: %.2f \n", max);
+    printf("En binaire: ");
+    for(j = i - 1; j >= 0; j--) {
+        printf("%d", A[j]);
+    }
+
+    printf("\n");
 
     return 0;
 }
